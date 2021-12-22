@@ -1,0 +1,12 @@
+<!-- templates/post_detail.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="post-entry">
+        <h2>{{ post.title }}</h2>  <!--- 'post' is the context object provided by DetailView to use in the template,
+        the context object can be 'post' (the name of the model in lowercase) or 'object' without any difference. But if
+        you want to rename the context object, you have to use context_object_name in your view--->
+        <p>{{ post.body }}</p>
+    </div>
+{% endblock content %}
