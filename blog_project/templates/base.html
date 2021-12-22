@@ -2,18 +2,25 @@
 {% load static %}
 <html>
     <head>
-    <title>Django blog</title>
+        <title>Javier's Django Blog</title>
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" srel="stylesheet">
+        <link href="{% static 'css/base.css' %}" rel="stylesheet"> <!--- References the base.css file --->
     </head>
-    <body>
-        <header>
-            <h1><a href="{% url 'home' %}">Django blog</a></h1>
-            <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" srel="stylesheet">
-            <link href="{% static 'css/base.css' %}" rel="stylesheet"> <!--- References the base.css file --->
-        </header>
-        <div>
-            {% block content %}
 
+    <body>
+        <div>
+            <header>
+                <div class="nav-left">
+                    <h1><a href="{% url 'home' %}">Javier's Django Blog</a></h1>
+                </div>
+                <div class="nav-right">
+                    <a href="{% url 'post_new' %}">+ New Blog Post</a>
+                </div>
+            </header>
+
+            {% block content %}
             {% endblock content %}
+
         </div>
     </body>
 </html>

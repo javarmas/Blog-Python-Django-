@@ -9,4 +9,8 @@
         you want to rename the context object, you have to use context_object_name in your view--->
         <p>{{ post.body }}</p>
     </div>
+
+    <a href="{% url 'post_edit' post.pk %}">Edit Post</a> <!--- The target name of the URL is post_edit, and we pass the
+    parameter post.pk--->
+    <a href="{% url 'post_delete' post.pk %}">Delete Post</a>
 {% endblock content %}

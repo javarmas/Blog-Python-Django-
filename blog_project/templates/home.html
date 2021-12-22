@@ -1,12 +1,13 @@
 <!-- templates/home.html -->
 
 {% extends 'base.html' %}
+
 {% block content %}
 
-    {% for post in object_list %}
+    {% for post in object_list reversed %}
     <div class="post-entry">
         <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
-        <p>{{ post.body }}</p>
+        <p>{{ post.body|truncatewords:5}}</p>
     </div>
     {% endfor %}
 
