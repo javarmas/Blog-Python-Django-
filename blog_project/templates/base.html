@@ -18,9 +18,18 @@
                 </div>
             </header>
 
+            {% if user.is_authenticated %}  <!---This code allows to display the name of the user on the pages if
+            the login is successful--->
+                <p>Hi {{ user.username }}!</p>
+                <p><a href="{% url 'logout' %}">Log out</a></p> <!--- Built-in Django auth app functionality for
+                logging out. It provides the necessary view--->
+            {% else %}
+                <p>You are not logged in.</p>
+                <a href="{% url 'login' %}">Log In</a>
+            {% endif %}
+
             {% block content %}
             {% endblock content %}
-
         </div>
     </body>
 </html>

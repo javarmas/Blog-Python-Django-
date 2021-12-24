@@ -17,6 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path('accounts/', include('django.contrib.auth.urls')),  # Added for login, logout, sign in
+    path('accounts/', include('accounts.urls')),  # Points to the urls files in the 'accounts' app created. The order of
+    # our urls matters here because Django reads this file top-to-bottom. Therefore when we request them
+    # /accounts/signup url, Django will first look in auth, not find it, and then proceed to the accounts app
+    path('', include('blog.urls')),  # Points to the urls files in the 'blog' app created
     path('admin/', admin.site.urls),
-    path('', include('blog.urls'))  # Points to the urls files in the 'blog' app created
 ]
